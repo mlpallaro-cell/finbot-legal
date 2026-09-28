@@ -31,12 +31,14 @@
 <body>
 
 <h1>Política de Privacidad — FinBot</h1>
-<p class="fecha">Vigente desde el 2 de septiembre de 2026</p>
+<p class="fecha">Vigente desde el 28 de septiembre de 2026 (versión anterior: 2 de septiembre de 2026)</p>
 
 <div class="card">
-    En resumen: FinBot no tiene servidores, no tiene cuentas de usuario y no
-    recolecta tu información financiera. Todo lo que cargás en la app vive
-    únicamente en tu teléfono.
+    En resumen: FinBot no guarda tus datos en ningún servidor, no tiene
+    cuentas de usuario y no recolecta tu información financiera. Todo lo que
+    cargás en la app vive únicamente en tu teléfono. La única excepción es un
+    paso técnico de la conexión opcional con Mercado Pago, descripto más
+    abajo, en el que tampoco se guarda nada.
 </div>
 
 <h2>Quiénes somos</h2>
@@ -48,15 +50,19 @@ Argentina, desarrollada de forma independiente. Contacto:
 <p>Toda tu información — movimientos bancarios importados, gastos cargados a
 mano, categorías, presupuestos, cuentas de patrimonio, fotos de comprobantes —
 se almacena <strong>exclusivamente en tu dispositivo</strong>, en una base de
-datos local. FinBot no tiene backend propio: no subimos, sincronizamos ni
-respaldamos tus datos en ningún servidor nuestro ni de terceros.</p>
+datos local. FinBot no tiene un servidor de datos: no subimos, sincronizamos
+ni respaldamos tus datos en ningún servidor nuestro ni de terceros.</p>
 <p>Los resúmenes bancarios (PDF/CSV) que importás se procesan por completo en
-tu teléfono. Nunca se envían a internet.</p>
+tu teléfono. Nunca se envían a internet. Los movimientos que traés de Mercado
+Pago, si conectás tu cuenta, viajan directamente desde Mercado Pago a tu
+teléfono y se guardan igual que un resumen cargado a mano.</p>
 
 <h2>Qué datos NO recolectamos</h2>
 <ul>
     <li>No pedimos registro ni cuenta de usuario.</li>
-    <li>No accedemos a tus cuentas bancarias ni usamos APIs bancarias.</li>
+    <li>No accedemos a tus cuentas bancarias ni pedimos usuario o contraseña
+    de ningún banco. La única conexión con una cuenta es la de Mercado Pago,
+    opcional, de solo lectura y con el permiso que vos le das (ver más abajo).</li>
     <li>No recolectamos tu información financiera, nombre, contactos ni ubicación.</li>
     <li>No usamos publicidad ni SDKs de análisis o tracking de terceros.</li>
 </ul>
@@ -78,6 +84,41 @@ opcionales que no envían información personal:</p>
 metadatos técnicos estándar (por ejemplo, la dirección IP del dispositivo).
 FinBot no agrega ninguna información identificable a esas consultas.</p>
 
+<h2>Conexión opcional con Mercado Pago</h2>
+<p>Si querés, podés conectar tu cuenta de Mercado Pago para que FinBot traiga
+tus movimientos sin que tengas que bajar archivos. Es opcional: la app
+funciona igual cargando el resumen de cuenta a mano.</p>
+<p><strong>Cómo funciona la conexión</strong></p>
+<ul>
+    <li>El permiso se lo das a FinBot desde la pantalla oficial de Mercado
+    Pago, con tu usuario y contraseña de Mercado Pago. FinBot nunca ve ni
+    guarda esa contraseña.</li>
+    <li>Mercado Pago le entrega a FinBot una llave de acceso de solo lectura.
+    FinBot no puede pagar, transferir ni mover plata con ella.</li>
+    <li>Esa llave se guarda cifrada en tu teléfono, en el almacén seguro del
+    sistema operativo. No se incluye en las copias de seguridad ni en las
+    exportaciones.</li>
+</ul>
+<p><strong>El único paso que pasa por un servidor de FinBot</strong></p>
+<ul>
+    <li>Mercado Pago exige que el canje del permiso lo haga un servidor y no la
+    app del teléfono. Por eso, al conectar, FinBot envía un código de
+    autorización temporal (que te da Mercado Pago) a un servidor de FinBot,
+    que lo canjea y devuelve la llave de acceso a tu teléfono.</li>
+    <li>Ese servidor no guarda nada: ni el código, ni la llave, ni tu
+    identidad, ni ningún dato financiero. Procesa el pedido y lo olvida. No
+    lleva registro de quién se conectó.</li>
+    <li>Tus movimientos nunca pasan por ese servidor: viajan directamente desde
+    Mercado Pago a tu teléfono.</li>
+</ul>
+<p><strong>Qué datos se traen de Mercado Pago</strong>: tus movimientos de
+cuenta (fecha, monto, descripción y el nombre del comercio cuando Mercado Pago
+lo informa). Se guardan solo en tu teléfono.</p>
+<p><strong>Cómo la cortás</strong>: en FinBot, tu avatar → Tus datos →
+"Desconectar" borra la llave del teléfono al instante; también se borra si
+borrás todos los datos de la app. Del lado de Mercado Pago, en tu cuenta →
+Seguridad → Aplicaciones conectadas podés revocar el permiso de FinBot.</p>
+
 <h2>Feedback (opcional)</h2>
 <p>Si elegís enviarnos feedback desde la app, se transmite únicamente lo que
 escribís en el formulario (valoración, tipo de comentario, bancos que usás si
@@ -87,9 +128,10 @@ financieros. Si querés que eliminemos un feedback enviado, escribinos a
 <a href="mailto:finbot.feedback@gmail.com">finbot.feedback@gmail.com</a>.</p>
 
 <h2>Fotos de comprobantes</h2>
-<p>Si adjuntás fotos de tickets o comprobantes, se guardan solo en el
-almacenamiento local de la app. Los permisos de cámara y galería se usan
-únicamente para eso.</p>
+<p>Si adjuntás fotos de comprobantes, se guardan solo en el almacenamiento
+local de la app. El permiso de cámara se usa únicamente para eso; para elegir
+una foto de la galería la app usa el selector del sistema, que no requiere
+permiso de acceso a tus fotos.</p>
 
 <h2>Copias de seguridad</h2>
 <p>Podés generar un archivo de backup desde la app. Ese archivo se crea en tu
@@ -98,8 +140,10 @@ FinBot no lo sube a ningún lado por sí solo, ni conserva copias.</p>
 
 <h2>Eliminación de datos</h2>
 <p>Tus datos se eliminan por completo al borrar los datos de la app o
-desinstalarla, o desde Ajustes → "Borrar todos los datos" dentro de la app.
-Como no existen copias en servidores, esa eliminación es total e inmediata.</p>
+desinstalarla, o desde tu avatar → Tus datos → "Borrar todos los datos"
+dentro de la app (eso también borra la llave de Mercado Pago, si la habías
+conectado). Como no existen copias en servidores, esa eliminación es total e
+inmediata.</p>
 
 <h2>Menores</h2>
 <p>FinBot no está dirigida a menores de 13 años y no recolecta datos de
