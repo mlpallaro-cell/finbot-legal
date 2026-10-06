@@ -31,14 +31,15 @@
 <body>
 
 <h1>Política de Privacidad — FinBot</h1>
-<p class="fecha">Vigente desde el 28 de septiembre de 2026 (versión anterior: 2 de septiembre de 2026)</p>
+<p class="fecha">Vigente desde el 6 de octubre de 2026 (versiones anteriores: 28 y 2 de septiembre de 2026)</p>
 
 <div class="card">
-    En resumen: FinBot no guarda tus datos en ningún servidor, no tiene
-    cuentas de usuario y no recolecta tu información financiera. Todo lo que
-    cargás en la app vive únicamente en tu teléfono. La única excepción es un
-    paso técnico de la conexión opcional con Mercado Pago, descripto más
-    abajo, en el que tampoco se guarda nada.
+    En resumen: FinBot no guarda tus datos financieros en ningún servidor, no
+    tiene cuentas de usuario y nunca recolecta tus montos, saldos, comercios ni
+    resúmenes. Todo lo que cargás en la app vive únicamente en tu teléfono. Lo
+    único que sale, si no lo apagás, son datos de uso anónimos para mejorar la
+    app (qué pantallas se abren y cuándo algo falla), sin ningún monto ni
+    nombre. Se apagan desde Ajustes.
 </div>
 
 <h2>Quiénes somos</h2>
@@ -63,8 +64,10 @@ teléfono y se guardan igual que un resumen cargado a mano.</p>
     <li>No accedemos a tus cuentas bancarias ni pedimos usuario o contraseña
     de ningún banco. La única conexión con una cuenta es la de Mercado Pago,
     opcional, de solo lectura y con el permiso que vos le das (ver más abajo).</li>
-    <li>No recolectamos tu información financiera, nombre, contactos ni ubicación.</li>
-    <li>No usamos publicidad ni SDKs de análisis o tracking de terceros.</li>
+    <li>No recolectamos tu información financiera (montos, saldos, comercios,
+    descripciones, resúmenes), tu nombre, contactos ni ubicación.</li>
+    <li>No usamos publicidad ni vendemos ni compartimos datos con nadie para
+    hacer publicidad.</li>
 </ul>
 
 <h2>Conexiones a internet que hace la app</h2>
@@ -75,14 +78,47 @@ opcionales que no envían información personal:</p>
     inflación (argentinadatos.com, BLS), precios de criptomonedas (CoinGecko)
     y de mercado (data912.com, Yahoo Finance). Estas consultas piden un número
     público de mercado y no incluyen ningún dato tuyo. Podés desactivarlas
-    desde Ajustes ("Actualización automática").</li>
+    desde Ajustes ("Usar internet para cotizaciones").</li>
     <li><strong>Actualizaciones de la app</strong>: la app consulta el servicio
     de actualizaciones de Expo (EAS Update) para descargar mejoras. Es una
     verificación técnica estándar que no incluye datos personales.</li>
 </ul>
+<p><strong>Carga por voz</strong>: cuando le contás un gasto a EVA, la voz la
+transforma en texto el reconocedor del propio teléfono. Si el teléfono tiene
+el paquete de voz en español, eso pasa sin internet. Si no lo tiene, y solo si
+tenés activado "Usar internet para cotizaciones", el teléfono puede usar su
+servicio de voz del sistema (de Google o Apple), que procesa el audio según
+sus propias condiciones. FinBot no guarda ni envía el audio.</p>
 <p>Como en cualquier conexión a internet, los servidores consultados reciben
 metadatos técnicos estándar (por ejemplo, la dirección IP del dispositivo).
 FinBot no agrega ninguna información identificable a esas consultas.</p>
+
+<h2>Datos de uso para mejorar la app (se pueden apagar)</h2>
+<p>Para saber qué se usa, qué no se entiende y qué falla, FinBot manda datos
+de uso a <strong>PostHog</strong>, un servicio de estadísticas con servidores
+en la Unión Europea. Viene activado y lo apagás cuando quieras en el último
+paso de la configuración inicial o en tu avatar → Ajustes → Tus datos →
+"Ayudar a mejorar FinBot".</p>
+<ul>
+    <li><strong>Qué se manda</strong>: qué pantallas abrís; eventos sueltos
+    (por ejemplo "importó un resumen de Galicia", "anotó un gasto a mano",
+    "conectó Mercado Pago"); tu modo de uso (banco, Mercado Pago o a mano);
+    cuando la app falla, en qué pantalla y por qué (con los números tapados);
+    el modelo de teléfono, el sistema y la versión de FinBot.</li>
+    <li><strong>Qué nunca se manda</strong>: montos, saldos, el disponible,
+    comercios, nombres, descripciones, fotos, tus resúmenes ni tu copia de
+    seguridad.</li>
+    <li>No hay cuenta ni nombre asociado: se usa un número al azar que se
+    renueva si borrás todos los datos. No se crean perfiles de persona, no se
+    usa la ubicación y no se graba la pantalla.</li>
+    <li>Los datos de uso se conservan hasta un año.</li>
+</ul>
+<p><strong>Resumen que no se pudo leer (solo si vos lo mandás)</strong>: si un
+resumen bancario no se puede leer, FinBot te ofrece mandarlo para arreglar el
+lector. Antes de mandar te muestra exactamente lo que sale: el texto del
+resumen con todo tapado (cada número se reemplaza por un 9 y cada letra de un
+comercio o un nombre por una x; solo quedan palabras típicas de los resúmenes
+como FECHA o SALDO). No se manda el PDF. Solo se envía si tocás "Mandar".</p>
 
 <h2>Conexión opcional con Mercado Pago</h2>
 <p>Si querés, podés conectar tu cuenta de Mercado Pago para que FinBot traiga
@@ -114,17 +150,24 @@ funciona igual cargando el resumen de cuenta a mano.</p>
 <p><strong>Qué datos se traen de Mercado Pago</strong>: tus movimientos de
 cuenta (fecha, monto, descripción y el nombre del comercio cuando Mercado Pago
 lo informa). Se guardan solo en tu teléfono.</p>
-<p><strong>Cómo la cortás</strong>: en FinBot, tu avatar → Tus datos →
+<p><strong>Cómo la cortás</strong>: en FinBot, tu avatar → Ajustes → Mercado Pago →
 "Desconectar" borra la llave del teléfono al instante; también se borra si
 borrás todos los datos de la app. Del lado de Mercado Pago, en tu cuenta →
 Seguridad → Aplicaciones conectadas podés revocar el permiso de FinBot.</p>
 
 <h2>Feedback (opcional)</h2>
-<p>Si elegís enviarnos feedback desde la app, se transmite únicamente lo que
-escribís en el formulario (valoración, tipo de comentario, bancos que usás si
-los indicás, y tu mensaje) a nuestra casilla de correo mediante el servicio
-EmailJS, cifrado en tránsito. Es totalmente opcional y no incluye datos
-financieros. Si querés que eliminemos un feedback enviado, escribinos a
+<p>Si elegís escribirnos desde "Contanos qué te parece", se transmite
+únicamente lo que completás (valoración, tipo de comentario, el banco que
+pedís, tu mensaje, tu mail si lo dejás) y, si dejás prendido "Sumar datos de
+la app", la versión de FinBot, tu modo de uso y el modelo de teléfono. Viaja
+cifrado a un servidor de FinBot que lo reenvía a nuestra casilla de correo
+mediante el servicio EmailJS, sin guardarlo. Es totalmente opcional y no
+incluye datos financieros.</p>
+<p>Si adjuntás una captura de pantalla o un resumen (por ejemplo, para pedir
+un banco nuevo), el archivo se envía desde <strong>tu propia app de
+correo</strong>, de tu casilla a la nuestra: no pasa por ningún servidor de
+FinBot. Lo usamos solo para arreglar la app o armar el lector de tu banco, y
+lo borramos cuando ya no hace falta. Si querés que eliminemos un feedback enviado, escribinos a
 <a href="mailto:finbot.feedback@gmail.com">finbot.feedback@gmail.com</a>.</p>
 
 <h2>Fotos de comprobantes</h2>
@@ -140,7 +183,7 @@ FinBot no lo sube a ningún lado por sí solo, ni conserva copias.</p>
 
 <h2>Eliminación de datos</h2>
 <p>Tus datos se eliminan por completo al borrar los datos de la app o
-desinstalarla, o desde tu avatar → Tus datos → "Borrar todos los datos"
+desinstalarla, o desde tu avatar → Ajustes → "Borrar todos los datos"
 dentro de la app (eso también borra la llave de Mercado Pago, si la habías
 conectado). Como no existen copias en servidores, esa eliminación es total e
 inmediata.</p>
